@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/favico.js@0.3.10"></script>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji url</title>
+    <link rel="icon" type="image/png" href="https://static-00.iconduck.com/assets.00/earth-globe-americas-emoji-2048x2048-ujjzy2mu.png" id="dynamicFavicon">
+</head>
+
+<body>
+    <h1 style="text-align: center; font-family: Poppins; font-size: 50px;">Titolo e url animati</h1>
+    <div id="emoji" style="text-align: center; font-family: Poppins; font-size: 50px;"></div>
+    <script>
+        let favicon = new Favico({ animation: 'pop' });
+        let myEmojis = [
+            "😀", "😃", "😄", "😁", "😆", "😅", "🤣", "😂", "🙂", "🙃", "🫠", "😉", "😊", "😇", "🥰", "😍", "🤩", "😘", "😗", "😚", "😙", "🥲", "😋", "😛", "😜", "🤪", "😝", "🤑", "🤗", "🤭", "🫢", "🫣", "🤫", "🤔", "🫡", "🤐", "🤨", "😐", "😑", "😶", "😏", "😒", "🙄", "😬", "🤥", "🫨", "😌", "😔", "😪", "🤤", "😴", "😷", "🤒", "🤕", "🤢", "🤮", "🤧", "🥵", "🥶", "🥴", "😵", "🤯", "🤠", "🥳", "🥸", "😎", "🤓", "🧐", "😕", "🫤", "😟", "🙁", "😮", "😯", "😲", "😳", "🥺", "🥹", "😦", "😧", "😨", "😰", "😥", "😢", "😭", "😱", "😖", "😣", "😞", "😓", "😩", "😫", "🥱", "😤", "😡", "😠", "🤬", "😈", "👿"
+        ];
+
+        let urlAnimate = () => {
+            window.location.hash = myEmojis[Math.floor((Date.now() / 200) % myEmojis.length)];
+            setTimeout(urlAnimate, 70);
+        };
+
+        urlAnimate();
+
+        let titleAnimate = () => {
+            document.title = myEmojis[Math.floor((Date.now() / 200) % myEmojis.length)] + " Emoji url";
+            setTimeout(titleAnimate, 70);
+        };
+
+        titleAnimate();
+
+        let contentAnimate = () => {
+            document.getElementById("emoji").innerText = myEmojis[Math.floor((Date.now() / 200) % myEmojis.length)];
+            setTimeout(contentAnimate, 70);
+        };
+
+        contentAnimate();
+    </script>
+</body>
+
+</html>
